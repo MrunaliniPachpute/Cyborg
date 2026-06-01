@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-cyan: #00f0ff;
+  --color-cyber-purple: #bd00ff;
+  --color-cyber-blue: #0066ff;
+  --color-cyber-dark: #030712;
+  --color-cyber-gray: #0b0f19;
+  --color-cyber-silver: #e2e8f0;
+  --color-cyber-slate: #1e293b;
+  
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "Share Tech Mono", monospace;
+  
+  --animate-scanline: scanline 6s linear infinite;
+  --animate-grid-drift: grid-drift 20s linear infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-glitch: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 5px rgba(0, 240, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), inset 0 0 10px rgba(0, 240, 255, 0.25);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    text-shadow: -2px 0 #00f0ff, 2px 0 #bd00ff;
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    text-shadow: 2px -2px #00f0ff, -2px 2px #bd00ff;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    text-shadow: -1px 2px #00f0ff, 1px -2px #bd00ff;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    text-shadow: 2px 1px #00f0ff, -2px -1px #bd00ff;
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #030712;
+  color: #f1f5f9;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom Cyber Aesthetics */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+}
+
+.cyber-grid-3d {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(189, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(189, 0, 255, 0.05) 1px, transparent 1px);
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: top center;
+}
+
+.cyber-glass {
+  background: rgba(11, 15, 25, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cyber-glass-purple {
+  background: rgba(11, 15, 25, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(189, 0, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Glow Utilities */
+.glow-cyan {
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.5));
+}
+
+.glow-purple {
+  filter: drop-shadow(0 0 8px rgba(189, 0, 255, 0.5));
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 10px rgba(189, 0, 255, 0.6);
+}
+
+/* Diagonal Cut Borders */
+.cyber-corners {
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+.cyber-corners-sm {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+/* Scanlines overlay */
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 99999;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Remove default styles from React template root */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
