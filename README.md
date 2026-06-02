@@ -2,17 +2,20 @@
 
 The website presents a futuristic vision of the relationship between humans and technology through a cyberpunk-inspired interface, modern UI elements, and responsive design.
 
-### Features
--Responsive design for desktop and mobile devices
--Futuristic cyborg/cyberpunk theme
--Modern user interface and user experience
--Interactive sections and visual effects
--Fast and lightweight React application
--Tech Stack
--React
--TypeScript
--Vite
--CSS
+## Features
+
+- Responsive design for desktop and mobile devices
+- Futuristic cyborg/cyberpunk theme
+- Modern user interface and user experience
+- Interactive sections and visual effects
+- Fast and lightweight React application
+
+## Tech Stack
+
+- React
+- TypeScript
+- Vite
+- CSS
 
 ### Run Locally
 ```
